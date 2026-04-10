@@ -74,39 +74,77 @@ building = cmds.polyCube(
     height=building_height,
     depth=building_depth,
 )[0]
+
 # Raise the building so its base sits on the ground plane.
 cmds.move(building_x, building_height / 2.0, building_z, building)
 
 # ---------------------------------------------------------------------------
-# TODO: Add Object 2
-# Create a second object using a DIFFERENT primitive type than the cube above.
-# Remember to:
-#   - Use descriptive variable names for size and position.
-#   - Name the object meaningfully with the 'name' parameter or cmds.rename().
-#   - Position it so it sits on the ground (not floating or buried).
+# Object 2: Tower (cylinder)
 # ---------------------------------------------------------------------------
+tower_height = 10
+tower_radius = 1
+tower_x = 2
+tower_z = -4
 
+tower = cmds.polyCylinder(
+    name="tower_01",
+    height=tower_height,
+    radius=tower_radius,
+)[0]
 
-# ---------------------------------------------------------------------------
-# TODO: Add Object 3
-# ---------------------------------------------------------------------------
-
-
-# ---------------------------------------------------------------------------
-# TODO: Add Object 4
-# ---------------------------------------------------------------------------
-
+# Raise the tower so its base sits on the ground plane.
+cmds.move(tower_x, tower_height / 2.0, tower_z, tower)
 
 # ---------------------------------------------------------------------------
-# TODO: Add Object 5
+# Object 3: Globe (sphere)
 # ---------------------------------------------------------------------------
+globe_radius = 1
+globe_x = 2
+globe_z = 3
 
+globe = cmds.polySphere(
+    name="globe_01",
+    radius=globe_radius,
+)[0]
+
+# Raise the globe so its base sits on the ground plane.
+cmds.move(globe_x, globe_radius, globe_z, globe)
 
 # ---------------------------------------------------------------------------
-# TODO (Optional): Add more objects to make your scene more interesting!
-# Consider: trees, lamp posts, fences, vehicles, animals, etc.
+# Object 4: Courtyard (torus)
 # ---------------------------------------------------------------------------
+courtyard_radius = 4
+courtyard_section_radius = 1
+courtyard_x = 2
+courtyard_z = 3
 
+# Primitive Type: Torus
+courtyard = cmds.polyTorus(
+    name="courtyard_01",
+    radius=courtyard_radius,
+    sectionRadius=courtyard_section_radius,
+)[0]
+
+# Raise the courtyard so its base sits on the ground plane.
+cmds.move(courtyard_x, courtyard_section_radius, courtyard_z, courtyard)
+
+# ---------------------------------------------------------------------------
+# Object 5: Tent (cone)
+# ---------------------------------------------------------------------------
+tent_height = 2
+tent_radius = 3
+tent_x = -5
+tent_z = -4
+
+# Primitive Type: Cone
+tent = cmds.polyCone(
+    name="tent_01",
+    height=tent_height,
+    radius=tent_radius,
+)[0]
+
+# Raise the tent so its base sits on the ground plane.
+cmds.move(tent_x, tent_height / 2.0, tent_z, tent)
 
 # ---------------------------------------------------------------------------
 # Frame All -- so the whole scene is visible in the viewport.
